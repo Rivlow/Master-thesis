@@ -1,16 +1,17 @@
-# Mon Projet
+# My Project
 
-Ce projet est basé sur [SPlisHSPlasH](https://github.com/InteractiveComputerGraphics/SPlisHSPlasH), une bibliothèque open-source pour la simulation physique de fluides.
+This project is based on [SPlisHSPlasH](https://github.com/InteractiveComputerGraphics/SPlisHSPlasH), an open-source library for physically-based fluid simulation.
 
-## Référence au projet original
+## Reference to original project
 
-SPlisHSPlasH a été créé par [Jan Bender](https://animation.rwth-aachen.de/person/1/) et est distribué sous licence MIT.
+SPlisHSPlasH was created by [Jan Bender](https://animation.rwth-aachen.de/person/1/) and is distributed under the MIT license.
 
-Citation originale :
+Original citation:
 ```bibtex
 @software{SPlisHSPlasH_Library,
-  author = {Bender, Jan and others},
-  license = {MIT},
-  title = {{SPlisHSPlasH Library}},
-  url = {https://github.com/InteractiveComputerGraphics/SPlisHSPlasH},
+ author = {Bender, Jan and others},
+ license = {MIT},
+ title = {{SPlisHSPlasH Library}},
+ url = {https://github.com/InteractiveComputerGraphics/SPlisHSPlasH},
 }
+```
