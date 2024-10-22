@@ -1,0 +1,54 @@
+# not sure what this is about
+FROM ubuntu:latest
+
+# Define working directory
+WORKDIR /app
+
+# Copy source code in container
+COPY . /app
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    sudo \
+    wget \
+    build-essential \
+    g++ \
+    git \
+    checkinstall \
+    libncursesw5-dev \ 
+    libssl-dev \ 
+    libsqlite3-dev \
+    tk-dev \
+    libgdbm-dev \
+    libc6-dev \
+    libbz2-dev \
+    libffi-dev \
+    zlib1g-dev \
+    software-properties-common && \
+    add-apt-repository -y ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt install pipx && \
+    apt install -y python3.8 && \
+    rm -rf /var/lib/apt/lists/* 
+
+# Chose specific version of CMake and Pyython
+ENV CMAKE_VERSION 3.13.2
+ENV PYTHON_VERSION 3.8.10
+
+# Install CMake
+RUN wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz && \
+    tar -zxvf cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz -C /opt && \
+    ln -s /opt/cmake-${CMAKE_VERSION}-Linux-x86_64/bin/cmake /usr/local/bin/cmake && \
+    rm cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz
+
+# Install Python
+RUN cd /usr/src && \
+    sudo wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
+    sudo tar xzf Python-${PYTHON_VERSION}.tgz && \
+    cd Python-${PYTHON_VERSION} && \
+    sudo ./configure --enable-optimizations && \
+    sudo make install
+
+
+# Spécifier le point d'entrée du conteneur
+CMD ["/bin/bash"]

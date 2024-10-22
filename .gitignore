@@ -1,0 +1,15 @@
+# Folder
+build/
+SPlisHSPlasH/bin
+SPlisHSPlasH/build
+.vs/
+.idea/
+venv/*
+doc/images
+
+
+# Extension
+*.json
+*.temp
+*.log
+*.bgeo
